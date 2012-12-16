@@ -54,4 +54,4 @@ void initq(qu1& q) {
      novi->sljedeci=NULL;
      q.rear=novi;
      q.front=novi;
-     } 
+     }  
