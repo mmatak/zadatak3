@@ -1,0 +1,55 @@
+struct ddatum{
+       int dan,mj,god;
+       };
+struct element {
+       char prez_ime[40];
+       ddatum dat;
+       float tekuci,devizni;
+       int a,b,c,d;
+       };
+       
+
+
+struct qu1 {
+       element korisnik[10000];
+       int front,rear;
+       };
+       
+qu1 q, salter, brzi, novi;
+int n, platiti=0;
+typedef qu1& red;
+
+int addone(int n) {
+    return ((n+1)%10000); 
+    }
+    
+element frontq(qu1& q) {
+     if(addone(q.rear)==q.front) {
+                                 system("pause");
+                                 exit(0);
+                                 }
+     return q.korisnik[q.front];
+     }
+     
+void enqueueq(element x, qu1& q) {
+     if(addone(addone(q.rear))==q.front) return;
+                                         
+     q.rear=addone(q.rear);
+     q.korisnik[q.rear]=x;
+     }
+     
+void dequeueq(qu1& q) {
+     if(addone(q.rear)==q.front) return;
+                       
+     q.front=addone(q.front);
+     }
+     
+void initq(qu1& q) {
+     q.front=0;
+     q.rear=9999;
+     }
+     
+bool isemptyq(qu1& q) {
+     if(addone(q.rear)==q.front) return true;
+     else return false;
+     }
